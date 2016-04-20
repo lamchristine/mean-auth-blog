@@ -42,7 +42,7 @@ function update(req, res){
   };
 
   if (req.user_id) {
-    query.user = req.user_id;
+    query.user = req.user_id; //if user id has been attached to request, 
   }
 
   Post

@@ -29,8 +29,8 @@ function PostsEditController ($location, $http, $routeParams) {
         .then(onUpdateSuccess, onUpdateError);
 
       function onUpdateSuccess(response){
-        $location.path('/')
-        // $location.path('/posts/' + $routeParams.id);
+        // $location.path('/');
+        $location.path('/posts/' + $routeParams.id);
       }
 
       function onUpdateError(response){

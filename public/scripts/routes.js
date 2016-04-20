@@ -52,7 +52,10 @@ function configRoutes($routeProvider, $locationProvider) {
     .when('/posts/new', {
       templateUrl: 'templates/posts/new.html',
       controller: 'PostsNewController',
-      controllerAs: 'postsNewCtrl'
+      controllerAs: 'postsNewCtrl',
+      resolve: {
+        loginRequired: loginRequired
+      }
     })
     .when('/posts/:id', {
       templateUrl: 'templates/posts/show.html',
@@ -62,17 +65,22 @@ function configRoutes($routeProvider, $locationProvider) {
     .when('/posts/:id/edit', {
       templateUrl: 'templates/posts/edit.html',
       controller: 'PostsEditController',
-      controllerAs: 'postsEditCtrl'
+      controllerAs: 'postsEditCtrl',
+      resolve: {
+        loginRequired: loginRequired
+      }
     })
 
     .otherwise({redirectTo: '/'});
 
-
-    function skipIfLoggedIn($q, $auth) {
-      return $auth.isAuthenticated();
+    //BEFORE ACTION -- like middleware
+    function skipIfLoggedIn($location, $auth) {
+      if ($auth.isAuthenticated()) {
+        $location.path('/');
+      }
     }
 
-    function loginRequired($q, $location, $auth) {
+    function loginRequired($location, $auth) { //if user is not authenticated
       if (!$auth.isAuthenticated()) {
         $location.path('/login');
       }

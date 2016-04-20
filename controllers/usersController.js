@@ -11,7 +11,7 @@ function login(req, res) {
       if (!isMatch) {
         return res.status(401).send({ message: 'Invalid email or password.' });
       }
-      res.send({ token: auth.createJWT(user) });
+      res.send({ token: auth.createJWT(user) }); //send back token for that user
     });
   });
 }

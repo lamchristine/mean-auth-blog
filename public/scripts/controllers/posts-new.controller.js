@@ -12,8 +12,8 @@ function PostsNewController ($location, $http) {
       .then(onCreateSuccess, onCreateError);
 
       function onCreateSuccess(response) {
-        // $location.path('/posts/' + response.data._id);
-        $location.path('/posts/')
+        $location.path('/posts/' + response.data._id);
+        // $location.path('/posts/')
       }
 
       function onCreateError (response) {
