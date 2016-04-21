@@ -35,4 +35,5 @@ function PostsShowController ($location, $http, $routeParams) {
     }
   }
 
+
 }

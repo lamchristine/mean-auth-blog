@@ -6,10 +6,10 @@
 </div>
 <form ng-submit="postsEditCtrl.update()">
   <div class="form-group">
-    <input type="text" class="form-control" value="title" placeholder="Title" ng-model="postsEditCtrl.post.title">
+    <input type="text" class="form-control" value="title" placeholder="Title" ng-model="postsEditCtrl.post.title" required="true">
   </div>
   <div class="form-group">
-    <textarea class="form-control" value="content" placeholder="Content" ng-model="postsEditCtrl.post.content"></textarea>
+    <textarea class="form-control" value="content" placeholder="Content" ng-model="postsEditCtrl.post.content" required="true"></textarea>
   </div>
   <input type="submit" value="Update Post" class="btn btn-block btn-info">
 </form>
