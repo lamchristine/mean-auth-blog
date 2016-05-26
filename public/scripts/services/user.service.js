@@ -5,7 +5,8 @@ function UserService($http, $q, $auth){
   var empty_user = {
     user_id: null,
     displayName: null,
-    email: null
+    email: null,
+    // created: null
   }
 
   self.user = angular.extend({}, empty_user, {
@@ -17,6 +18,7 @@ function UserService($http, $q, $auth){
   self.updateProfile = updateProfile;
   self.login = login;
   self.logout = logout;
+  // self.date = new Date();
 
   //// UserService Methods
 
@@ -33,7 +35,12 @@ function UserService($http, $q, $auth){
   function signup(user_data){
     return (
       $auth
-       .signup(user_data) // signup (https://github.com/sahat/satellizer#authsignupuser-options)
+       .signup (user_data)
+        //  user_id: user_data.user_id,
+        //  displayName: user_data.displayName,
+        //  email: user_data.email,
+        //  created: new Date()
+        // signup (https://github.com/sahat/satellizer#authsignupuser-options)
        .then(
          function onSuccess(response) {
            $auth.setToken(response.data.token); // set token (https://github.com/sahat/satellizer#authsettokentoken)

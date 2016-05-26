@@ -14,7 +14,4 @@ function PostsIndexController ($http) {
         vm.posts = response.data;
       });
   }
-  function isLoggedIn(){
-    if(postsIndexCtrl.post.user._id === main.currentUser.user_id);
-  }
 }
